@@ -1,5 +1,25 @@
 # java 函数式编程
 
+### 推导过程
+
+1. 一个简单的接口使用
+
+![image-20220924213502927](http://bijioss.donggei.top/image-20220924213502927.png)
+
+2. 静态内部类
+
+   ![image-20220924213727477](http://bijioss.donggei.top/image-20220924213727477.png)
+
+3.局部内部类
+
+![image-20220924213839600](../../tools/Typora/upload/image-20220924213839600.png)
+
+5. 匿名内部类
+
+![image-20220924213947645](../../tools/Typora/upload/image-20220924213947645.png)
+
+6. 使用lambda简化
+
 ## 1.为什么学
 
 1. 容于并发编程。可以使用并发 处理大数量集合，自动使用多线程去处理，而自己不用写线程有关代码。
@@ -39,6 +59,10 @@ public class LambdaDemo_01 {
 我们使用了匿名内部类，并且重写了run方法，然后调用了start()。
 
 什么情况可以使用Lambda表达式：
+
+任何接口，如果只包含唯一一 个抽象方法，那么它就是一个函数式接口.
+
+对于函数式接口，我们可以通过lambda表达式来创建该接口的对象，
 
 + 上面这种 这个匿名内部类 是一个接口的匿名内部类，并且只需要实现（重写）一个抽象方法（可能接口中其他的是默认方法，就一个是抽象的  ）
 
@@ -498,7 +522,7 @@ public void t10() {
 
 ##### reduce归并
 
-内部操作：![image-20220531202521234](https://s2.loli.net/2022/05/31/LdGtbhPmONWaAUE.png)
+内部操作：![image-20220531202521234](http://bijioss.donggei.top/LdGtbhPmONWaAUE.png)
 
 发现 返回的值  是和元素的类型一样的  所以一般先进行map操作 连起来叫 map-reduce操作
 
@@ -828,13 +852,13 @@ public void t4() {
 
   根据其中抽象方法的参数列表和返回值类型知道，我们可以在方法中对传入的参数条件判断，返回判断结果
 
-  ![image-20211028145818743](https://s2.loli.net/2022/06/01/tTHwCE69uQcNiO4.png)
+  ![image-20211028145818743](http://bijioss.donggei.top/tTHwCE69uQcNiO4.png)
 
 - ​	Supplier 生产型接口
 
   根据其中抽象方法的参数列表和返回值类型知道，我们可以在方法中创建对象，把创建好的对象返回
 
-![image-20211028145843368](https://s2.loli.net/2022/06/01/t541pK6lTm9VXBo.png)
+![image-20211028145843368](http://bijioss.donggei.top/t541pK6lTm9VXBo.png)
 
 ### 常用的默认方法
 
@@ -846,7 +870,7 @@ public void t4() {
 
 
 
-![image-20220601223437649](https://s2.loli.net/2022/06/01/CL1pt9oHweFgZVu.png)
+![image-20220601223437649](http://bijioss.donggei.top/CL1pt9oHweFgZVu.png)
 
 - and
 

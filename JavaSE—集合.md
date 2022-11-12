@@ -1,10 +1,10 @@
-#  集合（进阶）
+#  集合（进阶）                  
 ## 一.集合类体系结构
 1.Collection （单列）--->>List（可重复）--->>ArryList
 																		--->>Linklist
 									--->>set(不可重复)--->>HashSet
 																	--->>TreeSet
-2.Map 双列--->>HashAap
+2.Map 双列--->>HashMap
 
 Collection,Map, List,set是接口，4个是实现类
 
@@ -12,7 +12,41 @@ Collection,Map, List,set是接口，4个是实现类
 
 ## 二.collection集合
 ### 1.概述及常用方法
-![Screenshot_2021-08-07-21-29-44-495_tv.danmaku.bil](D:\2645981073\FileRecv\MobileFile\Screenshot_2021-08-07-21-29-44-495_tv.danmaku.bil.jpg)
+
+boolean add(E e) 	
+向集合添加元素e，若指定集合元素改变了则返回true
+
+boolean addAll(Collection<? extends E> c)	
+把集合C中的元素全部添加到集合中，若指定集合元素改变返回true
+
+void clear()	
+清空所有集合元素
+
+boolean contains(Object o)	
+判断指定集合是否包含对象o
+
+boolean containsAll(Collection<?> c)
+判断指定集合是否包含集合c的所有元素
+
+boolean isEmpty()	
+判断指定集合的元素size是否为0
+
+boolean remove(Object o)
+删除集合中的元素对象o,若集合有多个o元素，则只会删除第一个元素
+
+boolean removeAll(Collection<?> c）
+删除指定集合包含集合c的元素
+
+boolean retainAll(Collection<?> c)
+从指定集合中保留包含集合c的元素,其他元素则删除
+
+int size()	
+集合的元素个数
+
+T[] toArray(T[] a)
+将集合转换为T类型的数组
+
+________________________________________
 Arrylist重写了tosrting
 
 add ， remove（有重复删除第一个）， clear， contains(判断是否存在指定元素)， isEmpty，size
@@ -21,9 +55,11 @@ add ， remove（有重复删除第一个）， clear， contains(判断是否�
 用.iteartor方法获得迭代器  是用了Iitearto的实现类 
 两个常用方法：
 
+增强for循环
+
 ![Screenshot_2021-08-07-21-55-55-057_tv.danmaku.bil](D:\2645981073\FileRecv\MobileFile\Screenshot_2021-08-07-21-55-55-057_tv.danmaku.bil.jpg)
 
-![image-20210807220642894](C:\Users\DONG\AppData\Roaming\Typora\typora-user-images\image-20210807220642894.png)
+![image-20210807220642894](http://bijioss.donggei.top/image-20210807220642894.png)
 
 ## 三.List
 ### 1.List集合概述和特点
@@ -83,7 +119,7 @@ TreeSet(Comparator<? super E> comparator) //构造一个新的空树集，根据
   
   this是后面要加入的那个对象 s是传进来比较的前面那个对象
   
-  ![image-20210808213003447](C:\Users\DONG\AppData\Roaming\Typora\typora-user-images\image-20210808213003447.png)
+  ![image-20210808213003447](http://bijioss.donggei.top/image-20210808213003447.png)
   
   #### 比较器comparator的使用
   
