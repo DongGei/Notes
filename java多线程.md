@@ -1695,7 +1695,7 @@ public class demo1 {
 
         //Executors工具类,三大方法
         // ExecutorService threadPool = Executors.newSingleThreadExecutor();//单个线程
-        // ExecutorService threadPool = Executors.newFixedThreadPool(5);//创建一个固定大小得线程池
+        // ExecutorService threadPool = Executors.newFixedThreadPool(5);//创建一个固定大小的线程池
         //ExecutorService threadPool = Executors.newCachedThreadPool();//可伸缩，线程数可变
 
         ExecutorService threadPool = Executors.newSingleThreadExecutor();//单个线程
@@ -1703,7 +1703,7 @@ public class demo1 {
             //使用了线程池之后,使用线程池来创建线程
             threadPool.execute(() -> {
                 System.out.println(Thread.currentThread().getName() + "ok");
-            });
+            }); 
         }
         //线程池用完,程序结束,关闭线程池
         try {

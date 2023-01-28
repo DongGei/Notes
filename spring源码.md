@@ -7,7 +7,7 @@
 >  我们可以预测的大致顺序
 >  ![image-20221105121213650](http://bijioss.donggei.top/image-20221105121213650.png)
 >
->  xml里的bean 封装成**对象定义信息**更容易进一步的 创建 注入
+>  xml里的bean 封装成**对象定义信息**更容易进一步的 创建 注入 
 >
 >  ![image-20221105121713338](http://bijioss.donggei.top/image-20221105121713338.png)
 >
@@ -121,7 +121,7 @@
 >
 > ![image-20221105182720874](http://bijioss.donggei.top/image-20221105182720874.png)
 >
-> ![image-20221106183920803](../../tools/Typora/upload/image-20221106183920803.png)
+> ![image-20221106183920803](http://bijioss.donggei.top/image-20221106183920803.png)
 
 
 
@@ -208,7 +208,7 @@ spring整体流程大纲 **代码调用顺序简要分析**
 2. obtainFreshBeanFactory ：初始化BeanFactory，并进行XML 文件读取（如果需要的话）。 这一步之后ApplicationContext就具有BeanFactory 所提供的功能，也就是可以进行Bean的提取等基础操作了。
 3. prepareBeanFactory ：对BeanFactory 进行各种功能填充。
 4. postProcessBeanFactory ： 对 BeanFactory 做额外处理。默认没有实现
-5. invokeBeanFactoryPostProcessors ： 激活各种BeanFactory 处理器(调用了各种BeanFactoryPostProcessor)。其中最为关键的是 ConfigurationClassPostProcessor ，在这里完成了配置类的解析，生成注入容器中的bean 的 BeanDefinition。
+5. invokeBeanFactoryPostProcessors ： 激活各种BeanFactory 处理器(调用了各种BeanFactoryPostProcessor)。其中最为关键的是 ConfigurationClassPostProcessor ，在这里完成了配置类的解析，生成注入容器中的bean 的 BeanDefinition。解析@Configuratiqn、@Bean、@lmport、 @PropertySource 
 6. registerBeanPostProcessors ：注册和创建拦截bean创建的bean处理器。BeanPostProcessor 在这一步已经完成了创建。
 7. initMessageSource ：为上下文初始化Message 源，即对不同语言的消息体进行国际化处理
 8. initApplicationEventMulticaster ：初始化应用消息广播器，并放入"applicationEventMulticaster" bean 中
@@ -458,3 +458,62 @@ private final Map<String, ObjectFactory<?>> singletonFactories = new HashMap<Str
 private final Map<String, Object> earlySingletonObjects = new HashMap<String, Object>(16);
 ```
 
+### 黑马相关面试教学
+
+![image-20221228161228775](http://bijioss.donggei.top/image-20221228161228775.png)
+
+就是准备了一个environment 是ApplicationContext的一个成员变量，Environment中就是一些后续可能用到的键值信息，比如：application.properties中的
+
+![image-20221228164742472](http://bijioss.donggei.top/image-20221228164742472.png)
+
+beanFactory也作为了ApplicationContext的一个成员变量，ApplicationContext继承了BeanFactory
+
+但是在使用时 是这种组合关系
+
+![image-20221228171353770](http://bijioss.donggei.top/image-20221228171353770.png)
+
+右边绿色新多的就是在第3步完成的
+
+![image-20221228171628332](http://bijioss.donggei.top/image-20221228171628332.png)
+
+![image-20221228171950555](http://bijioss.donggei.top/image-20221228171950555.png)
+
+多加了一些beanDefinition
+
+![image-20221230204630189](http://bijioss.donggei.top/image-20221230204630189.png)
+
+注册了并没有用到它呢，在实例化、依赖注入、初始化阶段 才会用到  可能在11步
+
+![image-20221231171220301](http://bijioss.donggei.top/image-20221231171220301.png)
+
+![image-20221231171650826](http://bijioss.donggei.top/image-20221231171650826.png)
+
+![image-20221231171802776](http://bijioss.donggei.top/image-20221231171802776.png)
+
+体现了模板方法设计模式
+
+![image-20221231174805506](http://bijioss.donggei.top/image-20221231174805506.png)
+
+![image-20221231172630837](http://bijioss.donggei.top/image-20221231172630837.png)
+
+在beanDefinitionMap非延迟单例对象  在这个时候创建出来bean （Beanpp 就会派上用场
+
+![image-20221231175438863](http://bijioss.donggei.top/image-20221231175438863.png)
+
+bean的生命周期
+
+![image-20221231203256120](http://bijioss.donggei.top/image-20221231203256120.png)
+
+![image-20230102122320535](http://bijioss.donggei.top/image-20230102122320535.png)
+
+2级 解决代理情况下的循环依赖  循环依赖要产生代理对象 。3级 解决循环依赖
+
+![image-20230102175427337](http://bijioss.donggei.top/image-20230102175427337.png)
+
+![image-20230102180538871](http://bijioss.donggei.top/image-20230102180538871.png)
+
+![image-20230102183426654](http://bijioss.donggei.top/image-20230102183426654.png)
+
+![image-20230102181537031](http://bijioss.donggei.top/image-20230102181537031.png)
+
+ 

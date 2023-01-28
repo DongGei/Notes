@@ -9,3 +9,4 @@ spring整合SpringMVC和MyBatis ，使用SSM框架开发
 JAVA持久层框架
 
 *hibernate*是全自动的，MyBatis是半自动的
+

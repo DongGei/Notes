@@ -6,3 +6,5 @@ https://blog.csdn.net/ctflq/article/details/122333085?spm=1001.2101.3001.6661.1&
 
 [java内存泄漏与内存溢出](https://www.cnblogs.com/panxuejun/p/5883044.html)
 
+方法区 就是永久代  就是元空间
+
