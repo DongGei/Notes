@@ -1,5 +1,9 @@
 ## Redis
 
+## 补充
+
+### Redis [管道、事务、Lua 脚本对比](https://blog.csdn.net/qq_35787138/article/details/113741467)
+
 ### 一.redis的持久化方式-**RDB和AOF**两种持久化机制
 
 > Redis是基于内存的非关系型K-V数据库，既然它是基于内存的，如果Redis服务器挂了，数据就会丢失。为了避免数据丢失了，Redis提供了**持久化**，即把数据保存到磁盘。

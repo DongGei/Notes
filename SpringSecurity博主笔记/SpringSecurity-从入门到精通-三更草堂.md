@@ -135,7 +135,7 @@ public class HelloController {
 
 #### 2.2.2 认证流程详解
 
-![image-20211214151515385](img/image-20211214151515385.png)
+<img src="img/image-20211214151515385.png" alt="image-20211214151515385" style="zoom:200%;" />
 
 概念速查:
 
